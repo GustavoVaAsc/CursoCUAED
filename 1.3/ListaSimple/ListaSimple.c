@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "Lista.c"
-#include "inicializarLista.c"
+#include "inicializar.c"
 #include "estaVacia.c"
 #include "buscar.c"
 

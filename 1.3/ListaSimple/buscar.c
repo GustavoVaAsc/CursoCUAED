@@ -1,6 +1,6 @@
 // Función para buscar en una lista, en este caso por nombre
 
-Nodo buscarEnLista(Lista *lista, char *nombre){ 
+Nodo buscar(Lista *lista, char *nombre){ 
     if(lista->primero == NULL) return NULL; // Si la lista está vacía, devolvemos NULL
     
     Nodo *iterador = lista->primero; // Apuntador para iterar la lista
