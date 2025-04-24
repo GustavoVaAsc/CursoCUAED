@@ -1,7 +1,7 @@
 // Función para eliminar el nodo con el nombre deseado en la lista.
 
 void eliminar(Lista *lista, char *nombre){
-    if(lista->primero == NULL){
+    if(estaVacia(lista)){
         printf("La lista está vacía! \n");
         return;
     }

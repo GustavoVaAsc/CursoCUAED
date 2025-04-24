@@ -14,7 +14,7 @@ int main(){
     Lista l; // Declaramos la lista
     inicializar(&l); // Inicializamos la lista
 
-    if(buscar(&l,"Hola") == NULL) printf("Nodo no encontrado"); // Probamos a buscar en una lista vacía
+    if(buscar(&l,"Hola") == NULL) printf("Nodo no encontrado\n"); // Probamos a buscar en una lista vacía
 
     // Insertamos cinco elementos
     insertar(&l, "Nombre1");
@@ -49,6 +49,6 @@ int main(){
 
     // Si el valor retornado no es NULL, lo imprimimos
     if(a_buscar != NULL) printf("Nodo con id %d y nombre %s encontrado!\n",a_buscar->id, a_buscar->nombre);
-    else printf("Nodo no encontrado");
+    else printf("Nodo no encontrado\n");
     return 0;
 }

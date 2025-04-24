@@ -13,7 +13,7 @@ void insertar(Lista *lista, char *nombre){
     nuevo_nodo->siguiente = NULL; // Como caso base, el nodo siguiente es NULL
 
     // Si la lista está vacía
-    if(lista->primero == NULL){ 
+    if(estaVacia(lista)){ 
         nuevo_nodo->id = 1; // Le asignamos el id 1 si la lista está vacía
         lista->primero = nuevo_nodo; // El primer nodo de la lista ahora es el nuevo nodo
         lista->tam++; // Incrementamos el tamaño
