@@ -1,3 +1,5 @@
+// Definición de Nodo y Lista con typedef struct
+
 // Nodo de una lista ligada simple usando typedef struct
 typedef struct Nodo Nodo;
 
