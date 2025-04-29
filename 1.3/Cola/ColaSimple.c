@@ -23,9 +23,11 @@ int main(){
     encolar(&q,"codigoEDA","#include<stdio.h>\n\nint main(){\n\tprintf(\"Hola mundo\");\n\treturn 0;\n}","txt");
     encolar(&q,"maxresdefault","Una foto chistosa de internet","jpg");
 
-    // Imprimimos la cola
+    // Imprimimos la cola 
 
     printf("Mostrando la cola de impresión\n");
+    printf("Mostrando la cola de impresión\n");
+    printf("Tamaño de la cola %d\n", q.tam);
     Nodo *iterador = q.frente;
     int contador = 0;
     while(iterador != NULL){
@@ -36,7 +38,7 @@ int main(){
         printf("%s\n",iterador->contenido);
         printf("\n");
         printf("-------------------------------------------------------------------------------\n");
-        iterador = iterador->siguiente;
+        iterador = iterador->siguiente; // Pasamos al siguiente nodo
         contador++;
     }
 
@@ -50,6 +52,12 @@ int main(){
     printf("Nuevo frente de cola\n");
     printf("\n");
     iterador = obtenerFrente(&q);
+
+    if(iterador == NULL){
+        printf("La cola esta vacia\n");
+        return 0;
+    }
+
     printf("-------------------------------------------------------------------------------\n");
     printf("\n");
     printf("%s.%s\n",iterador->nombre,iterador->extension);
@@ -64,6 +72,7 @@ int main(){
     iterador = q.frente;
     contador = 0;
     printf("Mostrando la cola de impresión\n");
+    printf("Tamaño de la cola %d\n", q.tam);
     while(iterador != NULL){
         printf("-------------------------------------------------------------------------------\n");
         printf("Nodo %d\n",contador);
