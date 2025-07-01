@@ -30,7 +30,6 @@ int main(){
         printf("La cadena no existe en el arreglo\n");
     }
 
-    free(cadenas);
     return 0;
 }
 
