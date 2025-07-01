@@ -9,7 +9,7 @@ int main(){
    for (indice = 0; indice < 9 ; indice++){ // Se itera hasta 9, porque tenemos 9 posiciones
        if ((indice%3)==0) // Si acabamos de recorrer una fila, damos un salto de linea
            printf("\n");
-       printf("%x\t",(ap+indice)); // Imprimimos la direccion de memoria de cada elemento
+       printf("%d\t",*(ap+indice)); // Imprimimos la direccion de memoria de cada elemento
    }
    return 0;
 }
