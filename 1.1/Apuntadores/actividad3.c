@@ -7,10 +7,10 @@ Indicación importante: NO USAR LOS ÍNDICES DEL ARREGLO.
 
 Completa el código con las siguientes opciones:
 
-1. scanf("%lf",&a[i]);
+1. p++
 2. sizeof(arr)/sizeof(arr[0]);
-3. 
-4. arr
+3. (*p)++
+4. (*p)%2
 5. arr
 
 */
