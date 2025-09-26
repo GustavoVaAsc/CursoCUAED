@@ -1,0 +1,45 @@
+Procedimiento MultiplicacionMetodoRuso(A,B)
+    // Comentario: A y B son enteros de 32 bits //
+
+    Resultado <- 0
+    BanderaA <- Falso
+    BanderaB <- Falso
+
+    Si A < 0
+        BanderaA <- Verdadero
+    FinSi
+
+    Si B < 0
+        BanderaB <- Verdadero
+    FinSi
+
+    // Comentario: XOR es la operación XOR a nivel de bits //
+    Negativo <- BanderaA XOR BanderaB
+
+    A <- |A|
+    B <- |B|
+
+    Mientras B > 0
+        
+        Si B mod 2 = 1
+            Resultado <- Resultado + A
+        FinSi
+
+        / *Comentario: LSHIFT es la operacion de recorrer el numero a la izquierda
+        a nivel de bits */
+
+        / *Comentario: RSHIFT es la operacion de recorrer el numero a la derecha
+        a nivel de bits */
+        A <- A LSHIFT 1
+        B <- B RSHIFT 1
+
+    FinMientras
+
+    Si Negativo = 1
+        Escribe -Resultado
+    SiNo
+        Escribe Resultado
+    FinSi
+
+
+

@@ -1,0 +1,13 @@
+Procedimiento Multiplicacion(A,B)
+    // Comentario: A y B son enteros de 32 bits //
+
+    Resultado <- 0
+    Para i<-1 Hasta |B| Con Paso 1 Hacer
+        Resultado <- Resultado + A
+    FinPara
+
+    Si B < 0
+        Escribir Resultado
+    Sino
+        Escribir -Resultado
+    FinSi

@@ -1,0 +1,11 @@
+Procedimiento EsPar(N)
+
+// Comentario: N es un número entero de 32 bits //
+
+    Si N mod 2 = 0 Entonces
+        Escribir "N es par"
+    Sino 
+        Escribir "N es impar"
+    FinSi
+
+FinProcedimiento
