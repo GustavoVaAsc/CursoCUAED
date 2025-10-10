@@ -32,7 +32,7 @@ class PunteroACaracter(Scene):
             index_labels.add(idx)
 
         # Arreglar verticalmente con menos separación
-        vertical_boxes.arrange(DOWN, buff=0.05)
+        vertical_boxes.arrange(DOWN, buff=0.05) 
         vertical_boxes.move_to(LEFT)
         
         elements = VGroup()
