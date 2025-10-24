@@ -48,8 +48,8 @@ boolean esta_vacia(ColaEstatica *cola){
 
 // Función para comprobar si la cola está llena
 boolean esta_llena(ColaEstatica *cola){
-    // La cola está llena si final ha alcanzado el último índice del arreglo
-    return cola->final == cola->capacidad - 1; 
+    // Si el número de elementos es igual a la capacidad, la cola está llena
+    return cola->numElementos == cola->capacidad; 
 }
 
 // Función para encolar un elemento
@@ -59,8 +59,8 @@ boolean encolar(ColaEstatica *cola, int valor){
         return False; 
     }
 
-    // El índice del final se incrementa en 1
-    cola->final = cola->final + 1;
+    // El índice del final se mueve circularmente
+    cola->final = (cola->final + 1) % cola->capacidad;
     cola->datos[cola->final] = valor; // Insertar el nuevo elemento al final
     cola->numElementos++; // Incrementar el número de elementos
     return True; // Éxito
@@ -74,7 +74,7 @@ boolean desencolar(ColaEstatica *cola){
     }
     // Obtener el valor del frente
     int valor = cola->datos[cola->frente];
-    cola->frente = cola->frente + 1; // El frente se mueve hacia adelante 
+    cola->frente = (cola->frente + 1) % cola->capacidad; // Mover el frente circularmente
     cola->numElementos--; // Decrementar el número de elementos
     return True; // Éxito
 }
@@ -95,10 +95,11 @@ void imprimir_cola(ColaEstatica *cola){
         printf("La cola está vacía.\n");
         return;
     }
-    // Imprimir los elementos de la cola 
+    // Imprimir los elementos de la cola
     printf("Elementos en la cola: ");
-    for (int i = cola->frente; i <= cola->final; i++) {
-        printf("%d ", cola->datos[i]);
+    for (int i = 0; i < cola->numElementos; i++) {
+        int indice = (cola->frente + i) % cola->capacidad;
+        printf("%d ", cola->datos[indice]);
     }
     printf("\n");
 }
@@ -109,23 +110,18 @@ int main(){
     encolar(cola, 20);
     encolar(cola, 30);
     imprimir_cola(cola);
-    printf("Elemento \"frente\": %d\n", obtener_frente(cola));
-    encolar(cola, 40);
-    encolar(cola, 50);
-    encolar(cola, 60); // Esto debería fallar ya que la cola está llena
-    imprimir_cola(cola);
-    if(!encolar(cola, 80)){
-        printf("No se pudo encolar 80, la cola está llena.\n");
-    }
-
     int valor = obtener_frente(cola);
     if(desencolar(cola)){
         printf("Desencolado: %d\n", valor);
     }
-
-    valor = obtener_frente(cola);
-    if(desencolar(cola)){
-        printf("Desencolado: %d\n", valor);
+    imprimir_cola(cola);
+    printf("Elemento \"frente\": %d\n", obtener_frente(cola));
+    encolar(cola, 40);
+    encolar(cola, 50);
+    encolar(cola, 60);
+    encolar(cola, 70); // Esto debería fallar ya que la cola está llena
+    if(!encolar(cola, 80)){
+        printf("No se pudo encolar 80, la cola está llena.\n");
     }
     imprimir_cola(cola);
     liberar_cola(cola);
