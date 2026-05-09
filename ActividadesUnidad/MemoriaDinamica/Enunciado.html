@@ -1,0 +1,72 @@
+<p>Estás programando un módulo básico para gestionar tareas en un sistema
+  operativo experimental llamado Doors. Tu compañero anterior te dejó
+  implementados dos tipos de datos abstractos.</p>
+<p><code>struct Proceso{</code></p>
+<p><code> int pid;</code> <code> </code></p>
+<p><code>char nombre[32];</code></p>
+<p><code>};</code></p>
+<p></p>
+<p><code><span class="hljs-class"><span class="hljs-keyword">struct</span>
+      GestorProcesos{</span> </code></p>
+<p><code>struct Proceso *lista; <span class="hljs-comment">// Arreglo
+      dinámico</span> </code></p>
+<p><code><span class="hljs-keyword">int</span> cantidad; <span
+      class="hljs-comment">// Ocupados actualmente</span> </code></p>
+<p><code><span class="hljs-keyword">int</span> capacidad; <span
+      class="hljs-comment">// Tamaño total reservado en memoria</span> </code>
+</p>
+<p><code>}</code><code>;</code></p>
+<p>Implementa las funciones para manejar estas dos estructuras, teniendo en
+  cuenta que GestorProcesos contiene un arreglo dinámico.</p>
+<h4>Entrada</h4>
+<ul>
+  <li><code>int numOperaciones</code> - El número de operaciones que se harán
+    sobre el gestor de procesos </li>
+  <li><code>Operacion operaciones[]</code> - La lista de operaciones que deberás
+    ejecutar</li>
+</ul>
+<p> La estructura <code>Operacion</code> se define de la siguiente manera:</p>
+<p><code>struct Operacion{</code></p>
+<p><code> char accion[10];</code> <code> </code></p>
+<p><code> int parametro;</code></p>
+<p><code> char nombre[32];</code></p>
+<p><code>}</code></p>
+<h4>Salida</h4>
+<p>Por cada operación de tipo <code>"STATUS"</code> muestra en la salida
+  estándar los procesos activos con el siguiente formato:<br><code>"[{indice del
+    proceso en el arreglo}] PID: {Proceso.pid} - {Proceso.nombre}"</code></p>
+<h4>Consideraciones (no es necesario hacer validaciones)</h4>
+<p><code>int pid</code> es un entero entre 0 y 1000</p>
+<p><code>char nombre[32];</code> es una cadena cualquiera de hasta 32 caracteres
+  de longitud.</p>
+<p><code>struct Proceso *lista; </code>puede crecer hasta un tamaño de 100.</p>
+<p><code><span class="hljs-keyword">int</span> cantidad;</code> puede crecer
+  hasta un tamaño de 100</p>
+<p><code><span class="hljs-keyword">int</span> capacidad;</code> puede crecer
+  hasta 12800</p>
+<p><code>int numOperaciones</code> - es un entero entre 2 y 100</p>
+<p><code>char accion[10]</code> solo puede tener las siguientes
+  operaciones: <code><span class="hljs-comment">"INIT", "ADD", "KILL",
+      "STATUS"</span></code></p>
+<p><code>int parametro;</code> Solo puede ser un proceso <code>pid</code> válido
+  (existente actualmente), para las operaciones <code><span
+      class="hljs-comment">"KILL"</span></code> y <code><span
+      class="hljs-comment">"ADD"</span></code> o una capacidad entre 1 y 100
+  para la operación <code><span class="hljs-comment">"INIT"</span></code></p>
+<p>La operación <code><span class="hljs-comment">"INIT"</span></code> siempre es
+  la primera operación. </p>
+<p><code>  </code></p>
+<p><code> </code></p>
+<p>
+  <script>
+    document.addEventListener("paste", function(e) {
+      if (e.target.closest('.ace_editor')) {
+        e.preventDefault();
+        e.stopPropagation();
+        alert(
+          "El pegado de texto está desactivado para este ejercicio. Por favor escribe tu código."
+        );
+      }
+    }, true);
+  </script>
+</p>
