@@ -1,0 +1,101 @@
+<p>La red social <strong>DelayedMeter</strong> maneja los perfiles de sus
+  usuarios en una base de datos que contiene <code>numRegistros</code> registros
+  continuos. Su gestor de base de datos está fallando, por lo tanto te piden
+  migrar los datos provisionalmente a un programa en lenguaje C.</p>
+<ul>
+  <li><code>char nombreUsuario[]</code>: El nombre del i-ésimo usuario (máximo
+    20 caracteres).</li>
+  <li><code>char correo[]</code>: El correo electrónico del i-ésimo usuario
+    (máximo 64 caracteres).</li>
+  <li><code>char contrasena[]</code>: La contraseña del i-ésimo usuario (máximo
+    32 caracteres).</li>
+  <li><code>int publicaciones</code>: La cantidad de publicaciones del i-ésimo
+    usuario.</li>
+</ul>
+<p>Una vez que implementaste el tipo de dato abstracto, para probar tu
+  implementación, te dan una serie de consultas modeladas con el siguiente tipo
+  de dato abstracto</p>
+<p><code>struct Consulta{
+    char tipo[10];
+    char campo[20];
+    char valor[65];
+    }</code></p>
+<ul>
+  <li><code>tipo</code>: Solo puede ser <code>"SELECT"</code> o
+    <code>"MODIFY"</code></li>
+  <ul>
+    <li><code>"SELECT"</code>: Con este tipo de consulta, el valor de
+      <code>campo</code> es nulo y <code>valor</code> es un índice entre 0 y
+      <code>numRegistros-1</code> siendo el índice del arreglo al que aplicarás
+      las consultas de tipo<code>"MODIFY"</code></li>
+    <li><code>"MODIFY"</code>: Con este tipo de consulta el valor de</li>
+    <li><code>campo</code> es una cadena con el campo que se quiere modificar.
+      Este tipo de consultas solo pueden aparecer previas a un
+      <code>"SELECT"</code> y actúan sobre el último elemento seleccionado con
+      el otro comando.</li>
+  </ul>
+  <li><code>campo</code>: Puede tener los siguientes campos</li>
+  <ul>
+    <li><code>"username"</code>: Cambia el nombre de usuario</li>
+    <li><code>"email"</code>: Cambia el email</li>
+    <li><code>"password"</code>: Cambia la contraseña, adicionalmente, se debe
+      validar si la contraseña no es la misma.</li>
+    <li><code>"new_post"</code>: Incrementa en 1 la cantidad de publicaciones,
+      en este caso, <code>valor</code> es nulo.</li>
+  </ul>
+  <li><code>valor</code>: Contiene en valor a modificar para cualquiera de los
+    campos ingresados</li>
+</ul>
+<h4>Entrada:</h4>
+<p>La función <code>procesarConsultas()</code> recibe los siguientes parámetros:
+</p>
+<ol>
+  <li><code>int numRegistros</code>: El número de registros en la base de datos.
+  </li>
+  <li><code>Perfil usuarios[]</code>: El arreglo de estructuras con la
+    información inicial de los usuarios.</li>
+  <li><code>int numConsultas</code>: La cantidad de operaciones a procesar.</li>
+  <li><code>Consulta consultas[]</code>: El arreglo de consultas a procesar.
+  </li>
+</ol>
+<h4>Salida:</h4>
+<p>El programa debe generar reportes en la salida estándar (<code>stdout</code>)
+  siguiendo estas reglas:</p>
+<ol>
+  <li><strong>Validación de Contraseñas:</strong> Durante el procesamiento de un
+    <code>MODIFY</code> con campo <code>"password"</code>, si la nueva
+    contraseña (<code>valor</code>) es idéntica a la que el usuario ya tiene
+    actualmente, se debe imprimir inmediatamente el siguiente error y
+    <strong>NO</strong> realizar el cambio: <br><br><code>Error: Usuario
+      {username}, esa ya es tu contraseña</code> <br><br></li>
+  <li><strong>Reporte Final:</strong> Una vez procesadas todas las consultas,
+    debes imprimir la base de datos completa para verificar la migración. Cada
+    usuario debe imprimirse en una línea con el siguiente formato:
+    <br><br><code>[{i}] {username} - {email} - {password} - {publicaciones}
+      posts</code> <br><br>Donde <code>{i}</code> es el índice del usuario en el
+    arreglo.</li>
+</ol>
+<p>Se recomienda hacer uso de <code>atoi</code> y las funciones de la biblioteca
+  <code>string.h</code> (no es necesario incluirla) para la realización de este
+  ejercicio.</p>
+<h4>Consideraciones (no es necesario hacer validaciones)</h4>
+<ul>
+  <li><code>int numRegistros</code> - es un entero entre 1 y 500</li>
+  <li><code>int numConsultas</code> - es un entero entre 1 y 200</li>
+  <li><code>"SELECT"</code> siempre es el primer tipo de consulta</li>
+  <li><code>"MODIFY"</code> actúa sobre el índice del último
+    <code>"SELECT"</code></li>
+</ul>
+<p>
+  <script>
+    document.addEventListener("paste", function(e) {
+      if (e.target.closest('.ace_editor')) {
+        e.preventDefault();
+        e.stopPropagation();
+        alert(
+          "El pegado de texto está desactivado para este ejercicio. Por favor escribe tu código."
+        );
+      }
+    }, true);
+  </script>
+</p>
