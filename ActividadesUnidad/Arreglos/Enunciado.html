@@ -1,0 +1,64 @@
+<p>La empresa de pan dulce <strong>Terranela</strong> tiene controles de calidad
+  para el peso de sus productos. El software de las máquinas que hornean los
+  panes registra el peso de cada producto en un arreglo.</p>
+<p>Eres el encargado de crear su sistema de filtrado de productos. El sistema
+  debe tomar el arreglo con los pesos de los productos y determinar cuáles
+  cumplen con el control de calidad de la empresa. Para esto, te dan dos valores
+  que representan un umbral (<code>pesoMinimo</code>, <code>pesoMaximo</code>);
+  si un producto tiene un peso menor al peso mínimo o mayor al peso máximo, este
+  no cumple los estándares.</p>
+<p>De igual forma, la empresa te provee el costo de producir cada pan. Calcula
+  el total perdido de la empresa (cuánto perdieron por cada pan defectuoso).</p>
+<h4>Entrada:</h4>
+<p>En la función <code>panesDefectuosos()</code>, se reciben los siguientes
+  parámetros:</p>
+<ul>
+  <li><code>int numPanes</code>: El tamaño del arreglo de pesos.</li>
+  <li><code>float costo</code>: El costo de producir cada pan.</li>
+  <li><code>float pesoPanes[]</code>: El arreglo con el peso correspondiente a
+    cada pan.</li>
+  <li><code>float pesoMin</code>: El límite inferior del umbral.</li>
+  <li><code>float pesoMax</code>: El límite superior del umbral.</li>
+</ul>
+<h4>Salida:</h4>
+<p>En la salida estándar de C (<code>stdout</code>), debes imprimir:</p>
+<ol>
+  <li>En la primera línea, la cantidad de panes defectuosos (<code>int</code>).
+  </li>
+  <li>En la segunda línea, el total perdido (<code>float</code>), imprime
+    únicamente dos decimales.</li>
+  <li>En la tercera línea, una secuencia de caracteres con las siguientes
+    condiciones:
+    <ul>
+      <li>Debe corresponder al tamaño <code>numPanes</code>.</li>
+      <li>Solo puede contener dos caracteres:
+        <ul>
+          <li><code>'D'</code> → Para panes defectuosos.</li>
+          <li><code>'C'</code> → Para panes que cumplen el control de calidad.
+          </li>
+        </ul>
+      </li>
+      <li>Los caracteres deben estar separados por espacios.</li>
+    </ul>
+  </li>
+</ol>
+<h4>Consideraciones (no es necesario hacer validaciones)</h4>
+<ul>
+  <li><code>int numPanes</code> - es un entero entre 1 y 1000</li>
+  <li><code>float costo</code> - es un flotante entre 5.0 y 1000.0</li>
+  <li><code>float pesoMin, pesoMax</code> - es un flotante entre 5.0 y 1000.0
+  </li>
+</ul>
+<p>
+  <script>
+    document.addEventListener("paste", function(e) {
+      if (e.target.closest('.ace_editor')) {
+        e.preventDefault();
+        e.stopPropagation();
+        alert(
+          "El pegado de texto está desactivado para este ejercicio. Por favor escribe tu código."
+        );
+      }
+    }, true);
+  </script>
+</p>
