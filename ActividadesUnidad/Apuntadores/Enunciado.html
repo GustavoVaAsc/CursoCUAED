@@ -1,0 +1,53 @@
+<p> La agencia espacial "SateliteX" tiene un problema con su viejo satélite de
+  comunicaciones. Debido a la radiación solar, la memoria del satélite a veces
+  se corrompe e inserta caracteres de "ruido" (representados por el carácter
+  <code>#</code>) dentro de los mensajes importantes que envía a la Tierra.</p>
+<p>El ancho de banda para enviar datos desde el espacio es extremadamente caro.
+  Por eso, no pueden permitirse enviar estos caracteres basura.</p>
+<p>Eres el encargado de escribir el firmware del módulo de transmisión. Tu tarea
+  es limpiar el buffer de memoria antes de que sea enviado. Debes recorrer el
+  mensaje, eliminar todos los caracteres de ruido (<code>#</code>) y recorrer
+  (compactar) los caracteres válidos para que queden contiguos al inicio de la
+  memoria. Finalmente, debes calcular cuánto dinero se ahorró la agencia al no
+  transmitir esa basura.</p>
+<p><strong>NOTA:</strong> Para que la implementación sea válida se debe usar
+  <strong>aritmética de apuntadores</strong>; no será una respuesta válida si se
+  implementa con índices (ej. <code>mensaje[i]</code>).</p>
+<h4>Entrada:</h4>
+<p>En la función <code>limpiarTransmision()</code>, se envían los siguientes
+  parámetros:</p>
+<ul>
+  <li><code>char *mensaje</code>: Un apuntador al inicio del arreglo de
+    caracteres que contiene el mensaje sucio. (Se asume que termina en
+    <code>\0</code>).</li>
+  <li><code>float costoPorByte</code>: El costo en dólares de transmitir un solo
+    carácter (byte) al espacio.</li>
+</ul>
+<h4>Salida:</h4>
+<p>En la entrada estándar de C (<code>stdout</code>), debes imprimir:</p>
+<ol>
+  <li>En la primera línea, la cantidad de caracteres de ruido (<code>#</code>)
+    eliminados (<code>int</code>).</li>
+  <li>En la segunda línea, el total de dinero ahorrado (<code>float</code>).
+  </li>
+  <li>En la tercera línea, el mensaje final limpio y compactado.</li>
+</ol>
+<h4>Consideraciones (no es necesario hacer validaciones)</h4>
+<ul>
+  <li><code>char *mensaje</code> - El tamaño máximo del arreglo de caracteres es
+    200</li>
+  <li><code>float costoPorByte</code> - Un flotante entre 5.0 y 1000.0</li>
+</ul>
+<p>
+  <script>
+    document.addEventListener("paste", function(e) {
+      if (e.target.closest('.ace_editor')) {
+        e.preventDefault();
+        e.stopPropagation();
+        alert(
+          "El pegado de texto está desactivado para este ejercicio. Por favor escribe tu código."
+        );
+      }
+    }, true);
+  </script>
+</p>
